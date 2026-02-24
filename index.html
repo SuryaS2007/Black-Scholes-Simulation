@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuantEdge — Black-Scholes Options Pricer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Theme CSS variables — kept in HTML so PostCSS never resolves them at build time -->
+    <style>
+      :root {
+        /* Dark mode (default) — deep navy. Space-separated RGB for Tailwind alpha support */
+        --navy-950: 3 7 16;
+        --navy-900: 6 11 24;
+        --navy-850: 8 16 30;
+        --navy-800: 11 21 38;
+        --navy-750: 15 28 48;
+        --navy-700: 30 51 82;
+        --navy-600: 37 61 99;
+        --navy-500: 45 72 112;
+        --navy-400: 77 110 159;
+        --navy-300: 122 153 199;
+        --navy-200: 168 191 226;
+        --navy-100: 212 224 242;
+        --navy-50:  238 243 251;
+      }
+      html.light {
+        /* Light mode — inverted luminance, blue-gray palette */
+        --navy-950: 240 244 255;
+        --navy-900: 232 238 251;
+        --navy-850: 221 229 248;
+        --navy-800: 255 255 255;
+        --navy-750: 245 248 255;
+        --navy-700: 203 216 239;
+        --navy-600: 163 186 224;
+        --navy-500: 120 152 200;
+        --navy-400: 80 110 168;
+        --navy-300: 45 75 135;
+        --navy-200: 20 40 100;
+        --navy-100: 10 20 60;
+        --navy-50:  5 10 30;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

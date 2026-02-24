@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: rgb(var(--navy-900));
+    color: rgb(var(--navy-100));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Glass card */
+  .glass-card {
+    @apply bg-navy-800/70 backdrop-blur-md border border-white/[0.06] rounded-2xl;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  /* Elevated glass card */
+  .glass-card-elevated {
+    @apply bg-navy-750/80 backdrop-blur-md border border-white/[0.08] rounded-2xl;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* Custom range input */
+  .range-slider {
+    @apply w-full h-1 rounded-full appearance-none cursor-pointer outline-none;
+    background: linear-gradient(to right, #00C8FF var(--pct, 50%), #1E3352 var(--pct, 50%));
+    transition: background 0.1s ease;
+  }
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00C8FF;
+    border: 2px solid rgb(var(--navy-900));
+    box-shadow: 0 0 8px rgba(0,200,255,0.5);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 14px rgba(0,200,255,0.7);
+  }
+  .range-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00C8FF;
+    border: 2px solid rgb(var(--navy-900));
+    cursor: pointer;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--navy-700));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--navy-600));
+  }
+
+  /* Number input */
+  .num-input {
+    @apply bg-navy-700/60 border border-white/[0.08] rounded-lg px-2 py-1 text-right text-sm font-mono font-medium text-electric outline-none;
+    width: 72px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .num-input:focus {
+    @apply border-electric/50;
+    box-shadow: 0 0 0 2px rgba(0,200,255,0.1);
+  }
+
+  /* Badge pill */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  /* Tab button */
+  .tab-btn {
+    @apply px-4 py-1.5 rounded-lg text-sm font-medium transition-colors duration-150;
+  }
+  .tab-btn.active {
+    @apply bg-electric/15 text-electric;
+  }
+  .tab-btn:not(.active) {
+    @apply text-navy-300 hover:text-navy-100 hover:bg-white/[0.04];
+  }
+}
+
+@layer utilities {
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #00C8FF 0%, #0096BF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-green {
+    background: linear-gradient(135deg, #00FF8A 0%, #00C26A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-blue {
+    text-shadow: 0 0 12px rgba(0,200,255,0.6);
+  }
+  .glow-green {
+    text-shadow: 0 0 12px rgba(0,255,138,0.6);
+  }
+  .glow-red {
+    text-shadow: 0 0 12px rgba(255,51,102,0.6);
+  }
+}
+
+/* ── Light Mode Overrides ──────────────────────────────────────────
+   Tailwind bakes hex values into utility classes at compile time.
+   These selectors have higher specificity (html.light + class = 0,2,1)
+   than Tailwind's generated utilities (single class = 0,1,0), so they
+   cleanly override without !important.
+   ─────────────────────────────────────────────────────────────── */
+
+/* Backgrounds */
+html.light .bg-navy-950 { background-color: rgb(240, 244, 255); }
+html.light .bg-navy-900 { background-color: rgb(232, 238, 251); }
+html.light .bg-navy-900\/60 { background-color: rgba(232, 238, 251, 0.6); }
+html.light .bg-navy-900\/95 { background-color: rgba(232, 238, 251, 0.95); }
+html.light .bg-navy-850 { background-color: rgb(221, 229, 248); }
+html.light .bg-navy-800 { background-color: rgb(255, 255, 255); }
+html.light .bg-navy-800\/40 { background-color: rgba(255, 255, 255, 0.4); }
+html.light .bg-navy-800\/60 { background-color: rgba(255, 255, 255, 0.6); }
+html.light .bg-navy-800\/70 { background-color: rgba(255, 255, 255, 0.7); }
+html.light .bg-navy-800\/80 { background-color: rgba(255, 255, 255, 0.8); }
+html.light .bg-navy-750 { background-color: rgb(245, 248, 255); }
+html.light .bg-navy-750\/80 { background-color: rgba(245, 248, 255, 0.8); }
+html.light .bg-navy-700 { background-color: rgb(203, 216, 239); }
+html.light .bg-navy-700\/30 { background-color: rgba(203, 216, 239, 0.3); }
+html.light .bg-navy-700\/40 { background-color: rgba(203, 216, 239, 0.4); }
+html.light .bg-navy-700\/60 { background-color: rgba(203, 216, 239, 0.6); }
+
+/* Text */
+html.light .text-white { color: rgb(5, 10, 30); }
+html.light .text-navy-50  { color: rgb(5, 10, 30); }
+html.light .text-navy-100 { color: rgb(10, 20, 60); }
+html.light .text-navy-200 { color: rgb(20, 40, 100); }
+html.light .text-navy-300 { color: rgb(45, 75, 135); }
+html.light .text-navy-400 { color: rgb(80, 110, 168); }
+html.light .text-navy-500 { color: rgb(100, 130, 185); }
+html.light .text-navy-600 { color: rgb(130, 160, 210); }
+html.light .text-navy-900 { color: rgb(200, 215, 245); }
+
+/* Glass card components (use @apply so compiled to hardcoded values) */
+html.light .glass-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(80, 110, 168, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+html.light .glass-card-elevated {
+  background-color: rgba(245, 248, 255, 0.9);
+  border-color: rgba(80, 110, 168, 0.16);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Number input */
+html.light .num-input {
+  background-color: rgba(232, 238, 251, 0.7);
+  border-color: rgba(80, 110, 168, 0.2);
+}
+
+/* Range slider track empty portion */
+html.light .range-slider {
+  background: linear-gradient(to right, #00C8FF var(--pct, 50%), #C5D4EC var(--pct, 50%));
+}
